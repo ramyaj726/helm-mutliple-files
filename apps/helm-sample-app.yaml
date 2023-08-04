@@ -9,7 +9,7 @@ spec:
     name: in-cluster
   project: apps
   source:
-    repoURL: 'https://github.com/karthik-opsera/argo-examples/multiple-values-charts'
+    repoURL: 'https://github.com/ramyaj726/helm-mutliple-files'
     targetRevision: HEAD
     chart: multiple-values-charts
     helm:
