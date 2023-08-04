@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: qa-helm-argo-exmaple
+  namespace: qa-helm-argo-example
+spec:
+  destination:
+    namespace: qa-helm-argo-example
+    name: in-cluster
+  project: apps
+  source:
+    repoURL: 'https://github.com/karthik-opsera/argo-examples/multiple-values-charts'
+    targetRevision: HEAD
+    chart: multiple-values-charts
+    helm:
+      parameters: []
+      releaseName: qa-helm-repo-example
+      values: |
+        app:
+          image:
+            repository: nginx
+            tag: latest
+      fileParameters:
+        - name: app_config
+          path: env/dev/application.yaml
+      valueFiles:
+        - values.yaml
+        - env/dev/values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
