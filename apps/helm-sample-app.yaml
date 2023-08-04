@@ -9,7 +9,7 @@ spec:
     name: in-cluster
   project: apps
   source:
-    repoURL: 'https://github.com/ramyaj726/helm-mutliple-files'
+    repoURL: 'https://github.com/ramyaj726/helm-mutliple-files/multiple-values-charts'
     targetRevision: HEAD
     chart: multiple-values-charts
     helm:
